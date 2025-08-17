@@ -1,15 +1,18 @@
-import { render } from '@testing-library/react';
-
+import { screen } from '@testing-library/react';
+import { renderWithProviders } from '../test-utils';
 import App from './app';
 
 describe('App', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<App />);
+    const { baseElement } = renderWithProviders(<App />);
     expect(baseElement).toBeTruthy();
   });
 
-  it('should have a greeting as the title', () => {
-    const { getByText } = render(<App />);
-    expect(getByText(/Welcome ui/gi)).toBeTruthy();
+  it('should show the Home heading on /', () => {
+    renderWithProviders(<App />, { route: '/' });
+    // Prefer accessible queries:
+    expect(screen.getByRole('heading', { name: /home/i })).toBeInTheDocument();
+    // or, if you prefer the brand text:
+    // expect(screen.getByText(/bookstore/i)).toBeInTheDocument();
   });
 });
