@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "allowJs": false,
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "baseUrl": "src",
+    "paths": {
+      "models/*": ["app/models/*"],
+      "services/*": ["app/services/*"],
+      "store/*": ["app/store/*"],
+      "features/*": ["app/store/features/*"],
+      "components/*": ["app/components/*"],
+      "config/*": ["app/config/*"],
+      "pages/*": ["app/pages/*"],
+      "layouts/*": ["app/layouts/*"],
+      "hooks/*": ["app/hooks/*"], 
+      
+    }
+  },
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
+  "extends": "../../tsconfig.base.json"
+}

@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: .
+      target: api
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ui
+    env_file:
+      - .env   # Load variables from root .env
+
+  ui:
+    build:
+      context: .
+      target: ui
+    ports:
+      - "8080:80"
